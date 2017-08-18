@@ -1,18 +1,21 @@
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Jefry Hernandez
  */
 public class Cuentanueva extends javax.swing.JFrame {
-ArrayList <Usuario> lista = new ArrayList();
+
+    ArrayList<Usuario> lista = new ArrayList();
+
     /**
      * Creates new form Cuentanueva
      */
@@ -42,7 +45,7 @@ ArrayList <Usuario> lista = new ArrayList();
         jLabel5 = new javax.swing.JLabel();
         tf_email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tf_nombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         rb_fantasia = new javax.swing.JRadioButton();
         rb_romance = new javax.swing.JRadioButton();
@@ -67,6 +70,12 @@ ArrayList <Usuario> lista = new ArrayList();
         jLabel4.setText("Numero telefonico");
 
         jLabel5.setText("Email");
+
+        tf_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_emailActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Nombre Completo");
 
@@ -109,22 +118,21 @@ ArrayList <Usuario> lista = new ArrayList();
                             .addComponent(jLabel7)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tf_numero, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_usuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pf_contraseña, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dc_fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(rb_fantasia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(rb_romance)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb_accion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb_historia))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tf_email, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tf_numero, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(tf_usuario, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dc_fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                .addComponent(pf_contraseña, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addComponent(rb_accion))
+                            .addComponent(tf_email, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_nombre))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rb_historia)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -155,7 +163,7 @@ ArrayList <Usuario> lista = new ArrayList();
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -195,8 +203,43 @@ ArrayList <Usuario> lista = new ArrayList();
         String usuario = tf_usuario.getText();
         String password = pf_contraseña.getText();
         String numero = tf_numero.getText();
+        String email = tf_email.getText();
+        String nombre = tf_nombre.getText();
+        String genero = "";
+        String fecha = dc_fecha.getDate().toString();
+        if (rb_accion.isSelected()) {
+            genero = "Accion";
+        } else if (rb_fantasia.isSelected()) {
+            genero = "Fantasia";
+        } else if (rb_historia.isSelected()) {
+            genero = "Historia";
+        } else {
+            genero = "Romance";
+        }
+        
+        lista.add(new Usuario(usuario, nombre, fecha, numero, email, nombre, genero));
+        usuario ="";
+        password = "";
+        numero = "";
+        email ="";
+        nombre="";
+        genero="";
+        fecha="";
+        tf_usuario.setText("");
+        pf_contraseña.setText("");
+        tf_numero.setText("");
+        tf_email.setText("");
+        dc_fecha.setDate(new Date());
+        tf_nombre.setText("");
+
+
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_crearMouseClicked
+
+    private void tf_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,13 +288,13 @@ ArrayList <Usuario> lista = new ArrayList();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JPasswordField pf_contraseña;
     private javax.swing.JRadioButton rb_accion;
     private javax.swing.JRadioButton rb_fantasia;
     private javax.swing.JRadioButton rb_historia;
     private javax.swing.JRadioButton rb_romance;
     private javax.swing.JTextField tf_email;
+    private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_numero;
     private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables

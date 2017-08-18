@@ -14,13 +14,13 @@ public class Usuario {
 
     private String usuario;
     private String contrase;
-    private Date fecha;
+    private String fecha;
     private String numero;
     private String email;
     private String nombre;
     private String genero;
 
-    public Usuario(String usuario, String contrase, Date fecha, String numero, String email, String nombre, String genero) {
+    public Usuario(String usuario, String contrase, String fecha, String numero, String email, String nombre, String genero) {
         this.usuario = usuario;
         this.contrase = contrase;
         this.fecha = fecha;
@@ -46,11 +46,11 @@ public class Usuario {
         this.contrase = contrase;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
