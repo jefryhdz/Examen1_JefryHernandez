@@ -15,6 +15,7 @@ import java.util.Set;
 public class Cuentanueva extends javax.swing.JFrame {
 
     ArrayList<Usuario> lista = new ArrayList();
+    String[] ar = new String[0];
 
     /**
      * Creates new form Cuentanueva
@@ -33,213 +34,22 @@ public class Cuentanueva extends javax.swing.JFrame {
     private void initComponents() {
 
         bg_genero = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        tf_usuario = new javax.swing.JTextField();
-        pf_contraseña = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        dc_fecha = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
-        tf_numero = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        tf_email = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        tf_nombre = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        rb_fantasia = new javax.swing.JRadioButton();
-        rb_romance = new javax.swing.JRadioButton();
-        rb_accion = new javax.swing.JRadioButton();
-        rb_historia = new javax.swing.JRadioButton();
-        bt_crear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Usuario");
-
-        jLabel2.setText("Contraseña");
-
-        pf_contraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pf_contraseñaActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Fecha de nacimiento");
-
-        jLabel4.setText("Numero telefonico");
-
-        jLabel5.setText("Email");
-
-        tf_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_emailActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setText("Nombre Completo");
-
-        jLabel7.setText("Genero favorito");
-
-        bg_genero.add(rb_fantasia);
-        rb_fantasia.setText("Fantasia");
-
-        bg_genero.add(rb_romance);
-        rb_romance.setText("Romance");
-
-        bg_genero.add(rb_accion);
-        rb_accion.setText("Accion");
-
-        bg_genero.add(rb_historia);
-        rb_historia.setText("Historia");
-
-        bt_crear.setText("Crear");
-        bt_crear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_crearMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_crear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(tf_numero, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_usuario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pf_contraseña, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dc_fecha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rb_fantasia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rb_romance)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rb_accion))
-                            .addComponent(tf_email, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tf_nombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_historia)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(dc_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pf_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tf_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(rb_fantasia)
-                    .addComponent(rb_romance)
-                    .addComponent(rb_accion)
-                    .addComponent(rb_historia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(bt_crear))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 466, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void pf_contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pf_contraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pf_contraseñaActionPerformed
-
-    private void bt_crearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_crearMouseClicked
-        String usuario = tf_usuario.getText();
-        String password = pf_contraseña.getText();
-        String numero = tf_numero.getText();
-        String email = tf_email.getText();
-        String nombre = tf_nombre.getText();
-        String genero = "";
-        String fecha = dc_fecha.getDate().toString();
-        if (rb_accion.isSelected()) {
-            genero = "Accion";
-        } else if (rb_fantasia.isSelected()) {
-            genero = "Fantasia";
-        } else if (rb_historia.isSelected()) {
-            genero = "Historia";
-        } else {
-            genero = "Romance";
-        }
-        
-        lista.add(new Usuario(usuario, nombre, fecha, numero, email, nombre, genero));
-        usuario ="";
-        password = "";
-        numero = "";
-        email ="";
-        nombre="";
-        genero="";
-        fecha="";
-        tf_usuario.setText("");
-        pf_contraseña.setText("");
-        tf_numero.setText("");
-        tf_email.setText("");
-        dc_fecha.setDate(new Date());
-        tf_nombre.setText("");
-
-
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_crearMouseClicked
-
-    private void tf_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_emailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,24 +88,5 @@ public class Cuentanueva extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_genero;
-    private javax.swing.JButton bt_crear;
-    private com.toedter.calendar.JDateChooser dc_fecha;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField pf_contraseña;
-    private javax.swing.JRadioButton rb_accion;
-    private javax.swing.JRadioButton rb_fantasia;
-    private javax.swing.JRadioButton rb_historia;
-    private javax.swing.JRadioButton rb_romance;
-    private javax.swing.JTextField tf_email;
-    private javax.swing.JTextField tf_nombre;
-    private javax.swing.JTextField tf_numero;
-    private javax.swing.JTextField tf_usuario;
     // End of variables declaration//GEN-END:variables
 }

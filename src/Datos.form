@@ -58,10 +58,8 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="bt_ingresar" pref="124" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tf_user" max="32767" attributes="0"/>
-                          <Component id="pf_contrase" pref="124" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="tf_user" max="32767" attributes="0"/>
+                      <Component id="pf_contrase" pref="124" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="141" max="32767" attributes="0"/>
               </Group>
@@ -109,6 +107,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingresar"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_ingresarMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

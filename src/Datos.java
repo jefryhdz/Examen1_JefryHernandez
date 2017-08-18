@@ -1,14 +1,23 @@
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Jefry Hernandez
  */
 public class Datos extends javax.swing.JFrame {
+
+    String[] ar = new String[0];
+    String administ = "Admin";
+    String passwr = "Honduras";
+    String user;
+    String password;
 
     /**
      * Creates new form Datos
@@ -47,6 +56,11 @@ public class Datos extends javax.swing.JFrame {
         });
 
         bt_ingresar.setText("Ingresar");
+        bt_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_ingresarMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -60,9 +74,8 @@ public class Datos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bt_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(tf_user)
-                        .addComponent(pf_contrase, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                    .addComponent(tf_user)
+                    .addComponent(pf_contrase, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                 .addContainerGap(141, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,6 +117,40 @@ public class Datos extends javax.swing.JFrame {
     private void pf_contraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pf_contraseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pf_contraseActionPerformed
+
+    private void bt_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ingresarMouseClicked
+        user = tf_user.getText();
+        password = pf_contrase.getText();
+        ArrayList<Usuario> c = new Cuentanueva().lista;
+        boolean login = false;
+        boolean admin = false;
+        for (Usuario u : c) {
+            if (u.getNombre().equals(user) && u.getContrase().equals(password)) {
+                login = true;
+            }
+        }
+        if (user.equals(administ) && password.equals(passwr)) {
+            admin = true;
+        }
+        if (login) {
+            tf_user.setText("");
+            pf_contrase.setText("");
+            this.dispose();
+            new ingresadonormal().main(ar);
+
+        } else if (admin) {
+            tf_user.setText("");
+            pf_contrase.setText("");
+            this.dispose();
+            new Admin().main(ar);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_ingresarMouseClicked
 
     /**
      * @param args the command line arguments

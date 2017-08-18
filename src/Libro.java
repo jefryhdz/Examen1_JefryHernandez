@@ -1,3 +1,6 @@
+
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,12 +16,13 @@ public class Libro {
     private String descripcion;
     private String genero;
     private int puntaje;
-    private String fecha;
+    private Date fecha;
     private int valor;
     private String edicion;
     private String autor;
+    private int copias;
 
-    public Libro(String titulo, String descripcion, String genero, int puntaje, String fecha, int valor, String edicion, String autor) {
+    public Libro(String titulo, String descripcion, String genero, int puntaje, Date fecha, int valor, String edicion) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.genero = genero;
@@ -26,7 +30,6 @@ public class Libro {
         this.fecha = fecha;
         this.valor = valor;
         this.edicion = edicion;
-        this.autor = autor;
     }
 
     public String getTitulo() {
@@ -61,11 +64,11 @@ public class Libro {
         this.puntaje = puntaje;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -93,10 +96,16 @@ public class Libro {
         this.autor = autor;
     }
 
+    public int getCopias() {
+        return copias;
+    }
+
+    public void setCopias(int copias) {
+        this.copias = copias;
+    }
+
     @Override
     public String toString() {
-        return titulo + " Autor:" + autor  +"\n" + descripcion + "\n genero " + genero + "\n puntaje " + puntaje + "\n fecha de publicacion \n" + fecha + "\n valor " + valor + "n edicion Nº " + edicion ;
+        return titulo ;
     }
-    
-    
 }

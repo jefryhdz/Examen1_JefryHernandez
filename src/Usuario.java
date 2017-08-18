@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /*
@@ -11,7 +12,7 @@ import java.util.Date;
  * @author Jefry Hernandez
  */
 public class Usuario {
-
+    private ArrayList<Libro> libros = new ArrayList();
     private String usuario;
     private String contrase;
     private String fecha;
@@ -28,6 +29,14 @@ public class Usuario {
         this.email = email;
         this.nombre = nombre;
         this.genero = genero;
+    }
+
+    public ArrayList<Libro> getLibros() {
+        return libros;
+    }
+
+    public void setLibros(ArrayList<Libro> libros) {
+        this.libros = libros;
     }
 
     public String getUsuario() {
@@ -88,7 +97,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuario=" + usuario + ", contrase=" + contrase + ", fecha=" + fecha + ", numero=" + numero + ", email=" + email + ", nombre=" + nombre + ", genero=" + genero + '}';
+        return "Usuario{" + "libros=" + libros + ", usuario=" + usuario + ", contrase=" + contrase + ", fecha=" + fecha + ", numero=" + numero + ", email=" + email + ", nombre=" + nombre + ", genero=" + genero + '}';
     }
+
+    
     
 }
