@@ -23,6 +23,7 @@ public class Principa extends javax.swing.JFrame {
     String password;
     ArrayList<Usuario> lista = new ArrayList();
     ArrayList<Libro> libro = new ArrayList();
+    Usuario c;
 
     /**
      * Creates new form Principa
@@ -954,18 +955,18 @@ public class Principa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-        JOptionPane.showMessageDialog(this, lista.size());
+
         user = tf_user.getText();
-        JOptionPane.showMessageDialog(this, user);
+
         password = pf_contrase.getText();
-        JOptionPane.showMessageDialog(this, password);
+
         int cont = 0;
         boolean login = false;
         boolean admin = false;
         for (Usuario u : lista) {
             if (u.getUsuario().equals(user) && u.getContrase().equals(password)) {
                 login = true;
-                System.out.println("a");
+
                 usuario = cont;
             }
             cont++;
@@ -977,7 +978,7 @@ public class Principa extends javax.swing.JFrame {
         } else if (login) {
             tf_user.setText("");
             pf_contrase.setText("");
-            Usuario c = lista.get(usuario);
+            c = lista.get(usuario);
             ArrayList<Libro> li = c.getLibros();
             for (Libro libro : li) {
                 Devolver.addItem(libro);
@@ -1003,7 +1004,6 @@ public class Principa extends javax.swing.JFrame {
             modif.setVisible(true);
             Ingresar.setEnabled(true);
             Ingresar.setVisible(false);
-            
 
         } else {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
@@ -1130,7 +1130,7 @@ public class Principa extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         int index = Agregar_libro.getSelectedIndex();
-
+        c.getLibros().add(libro.get(index));
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
