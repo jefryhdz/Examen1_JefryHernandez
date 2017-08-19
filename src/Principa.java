@@ -31,6 +31,9 @@ public class Principa extends javax.swing.JFrame {
 
         initComponents();
         Usuario.setEnabled(false);
+        Ingresar.setEnabled(false);
+        Modificar.setEnabled(false);
+        Modificar.setVisible(false);
         Usuario.setVisible(false);
         Ingresar.setVisible(false);
         modif.setVisible(false);
@@ -865,8 +868,6 @@ public class Principa extends javax.swing.JFrame {
 
         jLabel30.setText("Escoja el libro a eliminar");
 
-        Eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Eliminar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -953,23 +954,27 @@ public class Principa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
-
+        JOptionPane.showMessageDialog(this, lista.size());
         user = tf_user.getText();
+        JOptionPane.showMessageDialog(this, user);
         password = pf_contrase.getText();
+        JOptionPane.showMessageDialog(this, password);
         int cont = 0;
         boolean login = false;
         boolean admin = false;
         for (Usuario u : lista) {
-            if (u.getNombre().equals(user) && u.getContrase().equals(password)) {
+            if (u.getUsuario().equals(user) && u.getContrase().equals(password)) {
                 login = true;
+                System.out.println("a");
                 usuario = cont;
             }
             cont++;
         }
         if (user.equals(administ) && password.equals(passwr)) {
             admin = true;
-        }
-        if (login) {
+            Modificar.setEnabled(false);
+            Modificar.setVisible(false);
+        } else if (login) {
             tf_user.setText("");
             pf_contrase.setText("");
             Usuario c = lista.get(usuario);
@@ -991,11 +996,14 @@ public class Principa extends javax.swing.JFrame {
             pf_contrase.setText("");
             for (Libro libro1 : libro) {
                 Modificar_libro.addItem(libro1);
-                Eliminar.addItem(libro1.getTitulo());
+                Eliminar.addItem(libro1);
             }
             Usuario.setVisible(true);
             Ingresar.setVisible(true);
             modif.setVisible(true);
+            Ingresar.setEnabled(true);
+            Ingresar.setVisible(false);
+            
 
         } else {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
@@ -1128,41 +1136,43 @@ public class Principa extends javax.swing.JFrame {
 
     private void MofidicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MofidicaMouseClicked
         int inde = Modificar_libro.getSelectedIndex();
+        int puntaj = 0;
         String titulo = tf_titulo1.getText();
         String descripcion = tf_descripcion1.getText();
+        String genero = "";
         if (rb_6.isSelected()) {
-            String puntaj = "1";
+            puntaj = 1;
         }
         if (rb_7.isSelected()) {
-            String puntaj = "2";
+            puntaj = 2;
         }
         if (rb_8.isSelected()) {
-            String puntaj = "3";
+            puntaj = 3;
         }
         if (rb_9.isSelected()) {
-            String puntaj = "4";
+            puntaj = 4;
         }
         if (rb_10.isSelected()) {
-            String puntaj = "5";
+            puntaj = 5;
         }
         int copias = Integer.parseInt(tf_copias1.getText());
         if (rb_fantasia2.isSelected()) {
-            String genero = "fantasia";
+            genero = "fantasia";
         }
         if (rb_historia2.isSelected()) {
-            String genero = "Historia";
+            genero = "Historia";
         }
         if (rb_romance2.isSelected()) {
-            String genero = "Romance";
+            genero = "Romance";
         }
         if (rb_accion2.isSelected()) {
-            String genero = "Accion";
+            genero = "Accion";
         }
         int valor = Integer.parseInt(tf_valor1.getText());
         String edicion = tf_edicion1.getText();
         String autor = tf_autor1.getText();
         Date fecha = dc_fecha2.getDate();
-        libro.set(inde, new Libro(titulo, descripcion, user, inde, fecha, valor, edicion));
+        libro.set(inde, new Libro(titulo, descripcion, genero, puntaj, fecha, valor, edicion));
 
         // TODO add your handling code here:
     }//GEN-LAST:event_MofidicaMouseClicked
